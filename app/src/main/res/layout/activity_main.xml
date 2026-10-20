@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".view.activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/splash"
+        android:layout_width="166dp"
+        android:layout_height="180dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:visibility="visible"
+        android:src="@drawable/favicon" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/iransans"
+        android:layout_below="@id/splash"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorGray"
+        android:text="کارکس" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:layout_alignParentStart="true"
+        android:id="@+id/loading"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/loadingIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:visibility="visible"
+            android:src="@drawable/loading" />
+
+        <TextView
+            android:id="@+id/loadingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iransans"
+            android:layout_below="@id/loadingIcon"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorGray"
+            android:text="در حال بارگذاری نرم افزار ..." />
+    </RelativeLayout>
+
+<WebView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/wv"
+    android:visibility="gone"
+    />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/nointernetcontainer"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/nowifi"
+            android:layout_width="166dp"
+            android:layout_height="311dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/nowifi" />
+
+        <TextView
+            android:id="@+id/nointernet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/iransans"
+            android:paddingHorizontal="10dp"
+            android:text="دسترسی به اینترنت وجود ندارد، لطفا از اتصال اینترنت خود اطمینان حاصل کنید."
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/bottom_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/retrybutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/iransans"
+                android:text="تلاش مجدد"
+                android:textColor="@color/colorWhite" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/contactsupportbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/colorBlue"
+                android:fontFamily="@font/iransans"
+                android:text="تماس با پشتیبانی"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:layout_alignParentStart="true"
+        android:id="@+id/ratingContainer"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/ratingIcon"
+            android:layout_width="250dp"
+            android:layout_height="180dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:visibility="visible"
+            android:src="@drawable/rating" />
+
+        <TextView
+            android:id="@+id/ratingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iransans"
+            android:layout_below="@id/ratingIcon"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorGray"
+            android:text="با نظر دادن به کارکس در بازار کمک زیادی به ما می کنید و ما رو برای ارائه امکانات جدیدتر و بهتر دلگرم می کنید." />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rateButton"
+            android:text="بریم نظر بدیم"
+            android:fontFamily="@font/iransans"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/rateLaterButton"
+            android:background="@color/colorRed"
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="10dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rateLaterButton"
+            android:text="بعدا"
+            android:fontFamily="@font/iransans"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorGray"
+            android:textColor="@color/colorWhite"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

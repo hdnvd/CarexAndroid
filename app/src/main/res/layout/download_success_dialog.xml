@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@android:color/white">
+
+    <!-- Success Icon -->
+    <ImageView
+        android:id="@+id/success_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_success"
+        android:contentDescription="Download success icon" />
+
+    <!-- Success Message -->
+    <TextView
+        android:id="@+id/success_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/iransans"
+        android:text="فایل مورد نظر با موفقیت در دانلودها ذخیره شد."
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center" />
+
+</LinearLayout>
