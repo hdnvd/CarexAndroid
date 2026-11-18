@@ -56,12 +56,16 @@ import java.util.Set;
 import ir.faravandgroup.carex.business.BlobDownloadBridge;
 import ir.faravandgroup.carex.business.DeviceInfoHelper;
 import ir.faravandgroup.carex.business.DownloadManager;
+import ir.faravandgroup.carex.business.deadlines.DeadlineNotificationBridge;
 import ir.faravandgroup.carex.business.PermissionHelper;
 
 public class WebAppMainActivity extends AppCompatActivity {
 
     private static final int FILE_CHOOSER_REQUEST_CODE = 1;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 101;
+    private static final int NOTIFICATION_PERMISSION_REQUEST_CODE = 102;
+    private static final String NOTIFICATION_PERMISSION_EVENT = "carexnotificationpermission";
+    private volatile String currentPageUrl;
     protected WebView vw;
     protected RelativeLayout loading;
     private static final String BAZAAR_APP_PACKAGE = "com.farsitel.bazaar";
@@ -358,6 +362,13 @@ public class WebAppMainActivity extends AppCompatActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 errorOccurred = false;
+                currentPageUrl = url;
+            }
+
+            @Override
+            public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
+                super.doUpdateVisitedHistory(view, url, isReload);
+                currentPageUrl = url;
             }
         });
         vw.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> {
@@ -382,6 +393,8 @@ public class WebAppMainActivity extends AppCompatActivity {
         vw.setHapticFeedbackEnabled(false);
         vw.setOnLongClickListener(v -> true);
         vw.addJavascriptInterface(new BlobDownloadBridge(activity), "BlobBridge");
+        vw.addJavascriptInterface(new DeadlineNotificationBridge(activity, () -> currentPageUrl,
+                Uri.parse(getSiteURL()).getHost(), this::requestNotificationPermission), DeadlineNotificationBridge.JS_NAME);
 
         showLoading();
         vw.loadUrl(getStartURL(getIntent()));
@@ -511,6 +524,15 @@ public class WebAppMainActivity extends AppCompatActivity {
         showWebView();
     }
 
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED)
+            return;
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                NOTIFICATION_PERMISSION_REQUEST_CODE);
+    }
+
     private boolean hasLocationPermission() {
         return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
@@ -528,6 +550,9 @@ public class WebAppMainActivity extends AppCompatActivity {
                     Toast.makeText(this, "دسترسی به فضای ذخیره سازی وجود ندارد، به همین دلیل دانلود انجام نشد.", Toast.LENGTH_SHORT).show();
                 }
             }
+        } else if (requestCode == NOTIFICATION_PERMISSION_REQUEST_CODE) {
+            if (vw != null)
+                vw.evaluateJavascript("window.dispatchEvent(new Event('" + NOTIFICATION_PERMISSION_EVENT + "'))", null);
         } else if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             boolean granted = hasLocationPermission();
             if (pendingGeolocationCallback != null) {

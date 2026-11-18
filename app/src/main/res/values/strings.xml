@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">کارکس</string>
+    <string name="deadline_channel_name">یادآور سررسیدها</string>
+    <string name="deadline_channel_description">یادآوری سررسید بیمه، معاینه فنی، لاستیک، عوارض و سایر مدارک خودرو</string>
+    <string name="deadline_stage_30_days">۳۰ روز تا سررسید</string>
+    <string name="deadline_stage_7_days">۷ روز تا سررسید</string>
+    <string name="deadline_stage_1_day">فردا سررسید است</string>
+    <string name="deadline_stage_due_day">امروز سررسید است</string>
 </resources>

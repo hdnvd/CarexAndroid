@@ -16,6 +16,12 @@ WebView. Modeled on the PulNegar Android client.
   permission. Only `*.mycarex.ir` pages can get the location.
 - Deep links: `https://mycarex.ir/openapp/<path>?<query>` and the same on
   `app.mycarex.ir` open `<path>?<query>` inside the app.
+- Deadline notifications (from versionCode 2): pages on `https://app.mycarex.ir`
+  call `window.CarexNotifications.syncDeadlines(json)` with the driver's active
+  deadlines; `business/deadlines` schedules local notifications at 10:00 for 30,
+  7 and 1 day(s) before and on the due date, re-schedules after reboot, app
+  update and time changes, and asks for the Android 13+ notification permission
+  once. Tapping a notification opens `/carex/deadlines`.
 - Store channel: change `MarketName` in `WebAppMainActivity` (Myket by
   default) before building an APK for each market.
 
