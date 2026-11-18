@@ -1,7 +1,7 @@
-package ir.sweetsoft.carex.view.activities;
+package ir.faravandgroup.carex.view.activities;
 
-import static ir.sweetsoft.carex.business.DownloadManager.startFileDownload;
-import static ir.sweetsoft.carex.business.PermissionHelper.STORAGE_PERMISSION_REQUEST_CODE;
+import static ir.faravandgroup.carex.business.DownloadManager.startFileDownload;
+import static ir.faravandgroup.carex.business.PermissionHelper.STORAGE_PERMISSION_REQUEST_CODE;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -53,10 +53,10 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
-import ir.sweetsoft.carex.business.BlobDownloadBridge;
-import ir.sweetsoft.carex.business.DeviceInfoHelper;
-import ir.sweetsoft.carex.business.DownloadManager;
-import ir.sweetsoft.carex.business.PermissionHelper;
+import ir.faravandgroup.carex.business.BlobDownloadBridge;
+import ir.faravandgroup.carex.business.DeviceInfoHelper;
+import ir.faravandgroup.carex.business.DownloadManager;
+import ir.faravandgroup.carex.business.PermissionHelper;
 
 public class WebAppMainActivity extends AppCompatActivity {
 

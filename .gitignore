@@ -16,5 +16,5 @@ local.properties
 
 # Signing secrets
 *.jks
-keystore.properties
+keystore*.properties
 /app/release

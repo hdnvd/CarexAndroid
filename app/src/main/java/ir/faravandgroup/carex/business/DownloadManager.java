@@ -1,4 +1,4 @@
-package ir.sweetsoft.carex.business;
+package ir.faravandgroup.carex.business;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
 
-import ir.sweetsoft.carex.R;
-import ir.sweetsoft.carex.view.activities.WebAppMainActivity;
+import ir.faravandgroup.carex.R;
+import ir.faravandgroup.carex.view.activities.WebAppMainActivity;
 
 public class DownloadManager {
     private static String LOG_TAG="sweet download manager";

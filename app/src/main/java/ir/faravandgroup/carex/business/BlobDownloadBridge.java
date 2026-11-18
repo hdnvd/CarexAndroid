@@ -1,4 +1,4 @@
-package ir.sweetsoft.carex.business;
+package ir.faravandgroup.carex.business;
 
 import android.app.Activity;
 import android.webkit.JavascriptInterface;

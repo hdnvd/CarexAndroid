@@ -1,4 +1,4 @@
-package ir.sweetsoft.carex.business;
+package ir.faravandgroup.carex.business;
 
 import android.Manifest;
 import android.app.Activity;
@@ -10,7 +10,7 @@ import android.util.Log;
 
 import androidx.core.content.ContextCompat;
 
-import ir.sweetsoft.carex.view.activities.MainActivity;
+import ir.faravandgroup.carex.view.activities.MainActivity;
 
 public class DeviceInfoHelper {
     public static void getDeviceInfo(Activity activity) {

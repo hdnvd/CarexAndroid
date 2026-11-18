@@ -1,10 +1,10 @@
-package ir.sweetsoft.carex.view.activities;
+package ir.faravandgroup.carex.view.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import ir.sweetsoft.carex.R;
-import ir.sweetsoft.carex.business.DeviceInfoHelper;
+import ir.faravandgroup.carex.R;
+import ir.faravandgroup.carex.business.DeviceInfoHelper;
 
 
 public class MainActivity extends WebAppMainActivity {

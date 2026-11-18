@@ -3,7 +3,7 @@
 Thin Android wrapper that shows the Carex PWA (`https://app.mycarex.ir`) in a
 WebView. Modeled on the PulNegar Android client.
 
-- Package: `ir.sweetsoft.carex`, label `کارکس`, minSdk 24, targetSdk 34.
+- Package: `ir.faravandgroup.carex`, label `کارکس`, minSdk 24, targetSdk 34.
 - Each page load on `*.mycarex.ir` gets `client=app&version=…&mkt=…&age=…`
   appended (same query string as PulNegar, `hasSms=false`), and the user agent
   ends with `sweetwebappclient <versionCode>`.
