@@ -114,7 +114,7 @@ public class WebAppMainActivity extends AppCompatActivity {
         }
     }
     // Change this item for the APK being distributed through each channel.
-    protected final Market MarketName = Market.Myket;
+    protected final Market MarketName = Market.Bazaar;
 
     protected String getURLEnd() {
         return "client=app&version=" + getAppVersion() + "&brnd=" + Build.BRAND + "&mdl=" + Build.MODEL + "&dvc=" + Build.DEVICE + "&sdkv=" + Build.VERSION.SDK_INT + "&hasSms=false&mkt=" + MarketName.getCode() + "&age=" + getDaysSinceFirstOpen();
