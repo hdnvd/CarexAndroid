@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Carex"
+rootProject.name = "Carsa"
 include(":app")
  

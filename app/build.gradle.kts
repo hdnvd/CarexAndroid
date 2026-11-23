@@ -11,15 +11,15 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "ir.faravandgroup.carex"
+    namespace = "ir.faravandgroup.carsa"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ir.faravandgroup.carex"
+        applicationId = "ir.faravandgroup.carsa"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 1
+        versionName = "1.0"
     }
 
     buildFeatures {
